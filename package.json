@@ -1,0 +1,42 @@
+{
+  "name": "@etools-plugin/devtools",
+  "version": "1.0.0",
+  "description": "Developer tools plugin for ETools - JSON formatter, Base64 encoder/decoder, URL encoder, and more",
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.mts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "dev": "tsup src/index.ts --format esm --dts --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "etools-plugin",
+    "developer-tools",
+    "json-formatter",
+    "base64",
+    "url-encoder",
+    "productivity"
+  ],
+  "author": "ETools Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/etools-team/devtools-plugin"
+  },
+  "homepage": "https://github.com/etools-team/devtools-plugin#readme",
+  "bugs": {
+    "url": "https://github.com/etools-team/devtools-plugin/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
