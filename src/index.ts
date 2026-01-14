@@ -23,7 +23,7 @@ export const manifest: PluginManifest = {
   description: 'Developer utilities - JSON formatter, Base64, URL encode, hash generator, timestamp converter, UUID',
   author: 'ETools Team',
   permissions: ['write:clipboard'],
-  triggers: ['dev:', 'json:', 'base64:', 'url:', 'hash:', 'ts:', 'uuid:'],
+  triggers: ['dev:', 'json:', 'base64:', 'url:', 'hash:', 'ts:', 'uuid:', 'ui:'],
   icon: '🛠️',
 };
 
@@ -149,6 +149,20 @@ export async function onSearch(query: string): Promise<PluginSearchResultV2[]> {
 
   // Remove trigger prefix
   const cleanQuery = query.replace(/^(dev:|json:|base64:|url:|hash:|ts:|uuid:)/, '').trim();
+
+  // UI trigger - 显示打开 UI 的选项
+  if (query.startsWith('ui:devtools') || query === 'ui:') {
+    results.push({
+      id: 'open-ui',
+      title: '开发者工具界面',
+      description: '打开可视化开发者工具界面',
+      icon: '🛠️',
+      actionData: {
+        type: 'open-ui',
+        pluginId: 'devtools',
+      },
+    });
+  }
 
   // JSON formatter
   if (query.startsWith('json:') || query.startsWith('dev:')) {
@@ -364,6 +378,19 @@ export async function executeAction(actionData: any): Promise<string> {
 
     default:
       return `Error: Unknown action type: ${type}`;
+  }
+}
+
+// UI component (optional, only available when loaded as local plugin)
+// This will be dynamically imported by etools when needed
+// @ts-ignore - UI is optional and may not be available during build
+export async function getUIComponent() {
+  try {
+    const uiModule = await import('./ui');
+    return uiModule.DevToolsUI;
+  } catch (error) {
+    console.warn('UI component not available:', error);
+    return null;
   }
 }
 

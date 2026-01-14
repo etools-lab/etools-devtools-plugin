@@ -37,11 +37,17 @@ export interface PluginSearchResultV2 {
   title: string;
   description?: string;
   icon?: string;
-  actionData: Record<string, any>;
+  actionData?: Record<string, any>;
+  action?: () => void | Promise<void>;
+}
+
+export interface PluginUI {
+  component: any; // React component type
 }
 
 export interface PluginV2 {
   manifest: PluginManifest;
   onSearch: (query: string) => Promise<PluginSearchResultV2[]>;
   executeAction?: (actionData: any) => Promise<string>;
+  ui?: PluginUI;
 }

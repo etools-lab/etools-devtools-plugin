@@ -7,7 +7,18 @@
       "Bash(git commit:*)",
       "Bash(npm run build)",
       "Bash(npm whoami:*)",
-      "Bash(npm publish:*)"
+      "Bash(npm publish:*)",
+      "Bash(git push)",
+      "Bash(git push:*)",
+      "mcp__filesystem__directory_tree",
+      "mcp__filesystem__read_text_file",
+      "mcp__filesystem__list_directory",
+      "mcp__zread__get_repo_structure",
+      "mcp__zread__search_doc",
+      "mcp__zread__read_file",
+      "Bash(git fetch:*)",
+      "Bash(ls:*)",
+      "Bash(.specify/scripts/bash/create-new-feature.sh:*)"
     ]
   }
 }

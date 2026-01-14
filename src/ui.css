@@ -1,0 +1,145 @@
+/**
+ * Developer Tools Plugin Styles
+ * Uses etools design tokens for consistency
+ */
+
+/* Sections */
+.devtools-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-4);
+}
+
+.devtools-section-title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: rgb(var(--color-text-primary));
+  margin: 0;
+}
+
+/* Labels */
+.devtools-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: rgb(var(--color-text-secondary));
+  display: block;
+  margin-bottom: var(--spacing-2);
+}
+
+/* Tool Grid */
+.devtools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--spacing-3);
+}
+
+.devtools-tool-card {
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--easing-default);
+  text-align: center;
+}
+
+.devtools-tool-card:hover {
+  transform: translateY(-2px);
+}
+
+.devtools-tool-icon {
+  font-size: 32px;
+  margin-bottom: var(--spacing-2);
+}
+
+.devtools-tool-name {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: rgb(var(--color-text-primary));
+  margin-bottom: var(--spacing-1);
+}
+
+.devtools-tool-desc {
+  font-size: var(--font-size-xs);
+  color: rgb(var(--color-text-tertiary));
+  line-height: var(--line-height-normal);
+}
+
+/* Result Card */
+.devtools-result-card {
+  background: rgb(var(--color-bg-secondary));
+  border: 1px solid rgb(var(--color-border-default));
+  animation: slideIn var(--duration-normal) var(--easing-default);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.devtools-result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+  padding-bottom: var(--spacing-3);
+  border-bottom: 1px solid rgb(var(--color-border-subtle));
+}
+
+.devtools-result-title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: rgb(var(--color-text-primary));
+  margin: 0;
+}
+
+.devtools-result-content {
+  margin-top: var(--spacing-3);
+}
+
+.devtools-result-text {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: rgb(var(--color-text-primary));
+  background: rgb(var(--color-bg-tertiary));
+  padding: var(--spacing-3);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* Error Display */
+.devtools-error {
+  margin-top: var(--spacing-3);
+  padding: var(--spacing-3);
+  background: rgba(var(--color-error), 0.1);
+  border: 1px solid rgb(var(--color-error));
+  border-radius: var(--radius-md);
+}
+
+.devtools-error-text {
+  font-size: var(--font-size-sm);
+  color: rgb(var(--color-error));
+  font-family: var(--font-family-mono);
+}
+
+/* Quick Actions */
+.devtools-quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+/* Multi-line Input */
+textarea.devtools-input {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  min-height: 120px;
+  resize: vertical;
+}
