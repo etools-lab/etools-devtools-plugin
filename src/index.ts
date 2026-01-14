@@ -19,7 +19,7 @@ import type {
 export const manifest: PluginManifest = {
   id: 'devtools',
   name: 'Developer Tools',
-  version: '1.0.0',
+  version: '1.1.0',
   description: 'Developer utilities - JSON formatter, Base64, URL encode, hash generator, timestamp converter, UUID',
   author: 'ETools Team',
   permissions: ['write:clipboard'],
