@@ -15,6 +15,7 @@ import type {
   PluginManifest,
   PluginSearchResultV2,
 } from './types';
+import { DevToolsUI } from './ui';
 
 export const manifest: PluginManifest = {
   id: 'devtools',
@@ -172,7 +173,9 @@ export async function onSearch(query: string): Promise<PluginSearchResultV2[]> {
       description: 'Format and validate JSON',
       icon: '📋',
       actionData: {
-        type: 'format-json',
+        type: 'open-ui',
+        pluginId: 'devtools',
+        toolId: 'json',
         query: cleanQuery,
       },
     });
@@ -186,7 +189,9 @@ export async function onSearch(query: string): Promise<PluginSearchResultV2[]> {
       description: 'Encode text to Base64',
       icon: '🔐',
       actionData: {
-        type: 'base64-encode',
+        type: 'open-ui',
+        pluginId: 'devtools',
+        toolId: 'base64-encode',
         query: cleanQuery,
       },
     });
@@ -197,7 +202,9 @@ export async function onSearch(query: string): Promise<PluginSearchResultV2[]> {
       description: 'Decode Base64 to text',
       icon: '🔓',
       actionData: {
-        type: 'base64-decode',
+        type: 'open-ui',
+        pluginId: 'devtools',
+        toolId: 'base64-decode',
         query: cleanQuery,
       },
     });
@@ -211,7 +218,9 @@ export async function onSearch(query: string): Promise<PluginSearchResultV2[]> {
       description: 'Encode URL components',
       icon: '🔗',
       actionData: {
-        type: 'url-encode',
+        type: 'open-ui',
+        pluginId: 'devtools',
+        toolId: 'url-encode',
         query: cleanQuery,
       },
     });
@@ -222,7 +231,9 @@ export async function onSearch(query: string): Promise<PluginSearchResultV2[]> {
       description: 'Decode URL components',
       icon: '🔗',
       actionData: {
-        type: 'url-decode',
+        type: 'open-ui',
+        pluginId: 'devtools',
+        toolId: 'url-decode',
         query: cleanQuery,
       },
     });
@@ -236,8 +247,9 @@ export async function onSearch(query: string): Promise<PluginSearchResultV2[]> {
       description: `Generate MD5 hash of "${cleanQuery || 'text'}"`,
       icon: '#️⃣',
       actionData: {
-        type: 'hash',
-        algorithm: 'md5',
+        type: 'open-ui',
+        pluginId: 'devtools',
+        toolId: 'hash-md5',
         query: cleanQuery,
       },
     });
@@ -248,8 +260,9 @@ export async function onSearch(query: string): Promise<PluginSearchResultV2[]> {
       description: `Generate SHA-1 hash of "${cleanQuery || 'text'}"`,
       icon: '#️⃣',
       actionData: {
-        type: 'hash',
-        algorithm: 'sha-1',
+        type: 'open-ui',
+        pluginId: 'devtools',
+        toolId: 'hash-sha1',
         query: cleanQuery,
       },
     });
@@ -260,8 +273,9 @@ export async function onSearch(query: string): Promise<PluginSearchResultV2[]> {
       description: `Generate SHA-256 hash of "${cleanQuery || 'text'}"`,
       icon: '#️⃣',
       actionData: {
-        type: 'hash',
-        algorithm: 'sha-256',
+        type: 'open-ui',
+        pluginId: 'devtools',
+        toolId: 'hash-sha256',
         query: cleanQuery,
       },
     });
@@ -275,7 +289,9 @@ export async function onSearch(query: string): Promise<PluginSearchResultV2[]> {
       description: 'Convert Unix timestamp to date',
       icon: '🕐',
       actionData: {
-        type: 'timestamp',
+        type: 'open-ui',
+        pluginId: 'devtools',
+        toolId: 'ts-convert',
         query: cleanQuery,
       },
     });
@@ -289,7 +305,9 @@ export async function onSearch(query: string): Promise<PluginSearchResultV2[]> {
       description: 'Generate a random UUID v4',
       icon: '🆔',
       actionData: {
-        type: 'uuid',
+        type: 'open-ui',
+        pluginId: 'devtools',
+        toolId: 'uuid-gen',
       },
     });
   }
@@ -381,24 +399,12 @@ export async function executeAction(actionData: any): Promise<string> {
   }
 }
 
-// UI component (optional, only available when loaded as local plugin)
-// This will be dynamically imported by etools when needed
-// @ts-ignore - UI is optional and may not be available during build
-export async function getUIComponent() {
-  try {
-    const uiModule = await import('./ui');
-    return uiModule.DevToolsUI;
-  } catch (error) {
-    console.warn('UI component not available:', error);
-    return null;
-  }
-}
-
 // Default export
 const plugin: PluginV2 = {
   manifest,
   onSearch,
   executeAction,
+  ui: { component: DevToolsUI },
 };
 
 export default plugin;

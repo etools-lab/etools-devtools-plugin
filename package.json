@@ -48,6 +48,27 @@
     "tsup": "^8.0.0",
     "typescript": "^5.3.0"
   },
+  "etools": {
+    "id": "devtools",
+    "title": "Developer Tools",
+    "description": "Developer utilities - JSON formatter, Base64, URL encode, hash generator, timestamp converter, UUID",
+    "author": "ETools Team",
+    "category": "developer",
+    "permissions": [
+      "write:clipboard"
+    ],
+    "triggers": [
+      "dev:",
+      "json:",
+      "base64:",
+      "url:",
+      "hash:",
+      "ts:",
+      "uuid:",
+      "ui:"
+    ],
+    "icon": "🛠️"
+  },
   "engines": {
     "node": ">=18.0.0"
   }
