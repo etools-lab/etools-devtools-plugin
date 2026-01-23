@@ -1,0 +1,60 @@
+.result-card {
+  border-left: 4px solid var(--border-color, #e5e5e5);
+}
+
+.result-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.result-card-title {
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.result-card-success {
+  background-color: var(--success-light, #e6f7e6);
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--success-border, #bbf7d0);
+}
+
+.result-card-content {
+  margin: 0;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.result-card-error {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--error-light, #fef2f2);
+  border-radius: 6px;
+  border: 1px solid var(--error-border, #fecaca);
+}
+
+.result-card-error-icon {
+  font-size: 1rem;
+}
+
+.result-card-error-message {
+  color: var(--error, #dc2626);
+  font-weight: 500;
+}
+
+.result-card-meta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color, #e5e5e5);
+  font-size: 0.75rem;
+  color: var(--text-secondary, #666);
+}

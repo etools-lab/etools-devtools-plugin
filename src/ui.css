@@ -89,6 +89,20 @@
   border-bottom: 1px solid rgb(var(--color-border-subtle));
 }
 
+.devtools-result-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.devtools-result-meta {
+  margin-top: var(--spacing-2);
+  display: flex;
+  gap: var(--spacing-4);
+  font-size: var(--font-size-xs);
+  color: rgb(var(--color-text-tertiary));
+}
+
 .devtools-result-title {
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-semibold);
@@ -135,6 +149,33 @@
   gap: var(--spacing-2);
 }
 
+/* Recent Tools */
+.devtools-recent-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.devtools-recent-tool {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  padding: var(--spacing-2) var(--spacing-3);
+  background: rgb(var(--color-bg-secondary));
+  border: 1px solid rgb(var(--color-border-subtle));
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  color: rgb(var(--color-text-secondary));
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--easing-default);
+}
+
+.devtools-recent-tool:hover {
+  background: rgb(var(--color-bg-tertiary));
+  border-color: rgb(var(--color-border-default));
+  color: rgb(var(--color-text-primary));
+}
+
 /* Multi-line Input */
 textarea.devtools-input {
   font-family: var(--font-family-mono);
@@ -142,4 +183,124 @@ textarea.devtools-input {
   line-height: var(--line-height-relaxed);
   min-height: 120px;
   resize: vertical;
+}
+
+/* Regex Flags */
+.devtools-flags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+}
+
+/* Timezone selector */
+.devtools-timezone select {
+  width: 100%;
+  padding: var(--spacing-2) var(--spacing-3);
+  border: 1px solid rgb(var(--color-border-default));
+  border-radius: var(--radius-md);
+  background-color: rgb(var(--color-bg-primary));
+  font-size: var(--font-size-sm);
+  color: rgb(var(--color-text-primary));
+  cursor: pointer;
+  transition: border-color var(--duration-fast) var(--easing-default);
+}
+
+.devtools-timezone select:hover {
+  border-color: rgb(var(--color-border-hover));
+}
+
+.devtools-timezone select:focus {
+  outline: none;
+  border-color: rgb(var(--color-primary));
+  box-shadow: 0 0 0 2px rgba(var(--color-primary), 0.2);
+}
+
+/* Regex match highlighting */
+.regex-match {
+  background-color: rgba(var(--color-warning), 0.3);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+/* Offline Indicator */
+.devtools-offline-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  padding: var(--spacing-1) var(--spacing-2);
+  background: rgba(var(--color-warning), 0.15);
+  border: 1px solid rgb(var(--color-warning));
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  color: rgb(var(--color-warning));
+  cursor: help;
+}
+
+.devtools-offline-indicator svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Loading Spinner */
+.devtools-loading {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3);
+  color: rgb(var(--color-text-secondary));
+}
+
+.devtools-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgb(var(--color-border-subtle));
+  border-top-color: rgb(var(--color-primary));
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Keyboard Shortcuts Hint */
+.devtools-shortcuts-hint {
+  margin-top: var(--spacing-4);
+  padding: var(--spacing-3);
+  background: rgb(var(--color-bg-secondary));
+  border: 1px solid rgb(var(--color-border-subtle));
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  color: rgb(var(--color-text-tertiary));
+}
+
+.devtools-shortcuts-hint kbd {
+  display: inline-block;
+  padding: 2px 6px;
+  background: rgb(var(--color-bg-tertiary));
+  border: 1px solid rgb(var(--color-border-default));
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  margin-right: var(--spacing-1);
+}
+
+/* Online-only feature warning */
+.devtools-online-warning {
+  margin-top: var(--spacing-3);
+  padding: var(--spacing-3);
+  background: rgba(var(--color-warning), 0.1);
+  border: 1px dashed rgb(var(--color-warning));
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: rgb(var(--color-warning));
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-2);
+}
+
+.devtools-online-warning-icon {
+  flex-shrink: 0;
 }

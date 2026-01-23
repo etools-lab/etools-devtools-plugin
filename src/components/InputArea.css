@@ -1,0 +1,32 @@
+.input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-area-label {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-color, #1a1a1a);
+}
+
+.input-area-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-area-input {
+  width: 100%;
+}
+
+.input-area-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.input-area-hint {
+  font-size: 0.75rem;
+  color: var(--text-secondary, #666);
+  text-align: right;
+}

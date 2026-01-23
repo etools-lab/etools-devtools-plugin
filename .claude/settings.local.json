@@ -18,7 +18,17 @@
       "mcp__zread__read_file",
       "Bash(git fetch:*)",
       "Bash(ls:*)",
-      "Bash(.specify/scripts/bash/create-new-feature.sh:*)"
+      "Bash(.specify/scripts/bash/create-new-feature.sh:*)",
+      "mcp__web-reader__webReader",
+      "Bash(.specify/scripts/bash/setup-plan.sh:*)",
+      "mcp__exa__get_code_context_exa",
+      "Bash(.specify/scripts/bash/update-agent-context.sh:*)",
+      "Bash(.specify/scripts/bash/check-prerequisites.sh:*)",
+      "Bash(npm install:*)",
+      "Bash(npm test)",
+      "Bash(npm run build:ui)",
+      "Bash(npm test:*)",
+      "Bash(git rm:*)"
     ]
   }
 }
